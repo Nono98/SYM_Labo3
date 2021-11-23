@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">lab3</string>
     <string name="nfc">NFC</string>
+    <string name="barcode">Code-barres</string>
     <string name="ibeacon">iBeacon</string>
-    <string name="barcode">Bar Code</string>
 </resources>
