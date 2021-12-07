@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        barcodeButton.setOnClickListener {
+        ibeaconButton.setOnClickListener {
             val intent = Intent(this, iBeaconActivity::class.java)
             startActivity(intent)
         }

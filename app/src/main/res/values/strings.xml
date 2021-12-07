@@ -3,4 +3,5 @@
     <string name="nfc">NFC</string>
     <string name="ibeacon">iBeacon</string>
     <string name="barcode">Bar Code</string>
+    <string name="ibeacon_list">List of iBeacons nearby</string>
 </resources>
