@@ -3,4 +3,11 @@
     <string name="nfc">NFC</string>
     <string name="ibeacon">iBeacon</string>
     <string name="barcode">Bar Code</string>
+    <string name="ibeacon_list">List of iBeacons nearby</string>
+    <string name="ibeacon_uuid" translatable="false">UUID</string>
+    <string name="ibeacon_major">Major</string>
+    <string name="ibeacon_minor">Minor</string>
+    <string name="ibeacon_rssi" translatable="false">RSSI</string>
+    <string name="ibeacon_permission_ok">Permission granted</string>
+    <string name="ibeacon_permission_denied">Permission denied</string>
 </resources>
