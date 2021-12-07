@@ -8,7 +8,6 @@ import java.util.ArrayList
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-
 class iBeaconRecyclerAdapter : RecyclerView.Adapter<iBeaconRecyclerAdapter.ViewHolder>() {
     private var beacons: List<Beacon> = ArrayList()
 
