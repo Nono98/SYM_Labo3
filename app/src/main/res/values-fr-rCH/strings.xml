@@ -5,4 +5,8 @@
     <string name="barcode">Code-barres</string>
     <string name="ibeacon">iBeacon</string>
     <string name="ibeacon_list">Liste des iBeacons à proximité</string>
+    <string name="ibeacon_major">Majeur</string>
+    <string name="ibeacon_minor">Mineur</string>
+    <string name="ibeacon_permission_ok">Permission accordée</string>
+    <string name="ibeacon_permission_denied">Permission refusée</string>
 </resources>
