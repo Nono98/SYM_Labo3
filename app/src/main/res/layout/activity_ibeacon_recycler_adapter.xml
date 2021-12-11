@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:layout_marginBottom="20dp"
     android:id="@+id/ibeacon_recycler_view"
-    tools:context=".iBeaconRecyclerAdapter">
+    tools:context=".ibeacon.IBeaconRecyclerAdapter">
 
     <RelativeLayout
         android:layout_width="match_parent"

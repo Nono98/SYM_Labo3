@@ -1,4 +1,4 @@
-package ch.heigvd.iict.sym.lab.lab3
+package ch.heigvd.iict.sym.lab.lab3.ibeacon
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
@@ -7,8 +7,9 @@ import org.altbeacon.beacon.Beacon
 import java.util.ArrayList
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import ch.heigvd.iict.sym.lab.lab3.R
 
-class iBeaconRecyclerAdapter : RecyclerView.Adapter<iBeaconRecyclerAdapter.ViewHolder>() {
+class IBeaconRecyclerAdapter : RecyclerView.Adapter<IBeaconRecyclerAdapter.ViewHolder>() {
     private var beacons: List<Beacon> = ArrayList()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -18,12 +19,12 @@ class iBeaconRecyclerAdapter : RecyclerView.Adapter<iBeaconRecyclerAdapter.ViewH
         val rssi: TextView = itemView.findViewById(R.id.rssi)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): iBeaconRecyclerAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IBeaconRecyclerAdapter.ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context)
             .inflate(R.layout.activity_ibeacon_recycler_adapter, parent,false))
     }
 
-    override fun onBindViewHolder(holder: iBeaconRecyclerAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: IBeaconRecyclerAdapter.ViewHolder, position: Int) {
 
         val beacon: Beacon = beacons[position]
         holder.uuid.text = beacon.id1.toString()

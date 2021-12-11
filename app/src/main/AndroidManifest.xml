@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab3">
         <activity
-            android:name=".iBeaconRecyclerAdapter"
+            android:name=".IBeaconRecyclerAdapter"
             android:exported="true" />
         <activity
             android:name=".iBeaconActivity"
