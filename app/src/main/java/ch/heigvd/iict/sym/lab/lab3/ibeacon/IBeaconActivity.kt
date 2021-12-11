@@ -1,4 +1,4 @@
-package ch.heigvd.iict.sym.lab.lab3
+package ch.heigvd.iict.sym.lab.lab3.ibeacon
 
 import android.Manifest
 import android.content.Intent
@@ -16,14 +16,14 @@ import android.os.RemoteException
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import ch.heigvd.iict.sym.lab.lab3.R
 import org.altbeacon.beacon.Region
-import org.altbeacon.beacon.MonitorNotifier
 
 private const val BEACON_FORMAT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"
 
 class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
     private lateinit var beaconManager: BeaconManager
-    private lateinit var beaconRecyclerAdapter: iBeaconRecyclerAdapter
+    private lateinit var beaconRecyclerAdapter: IBeaconRecyclerAdapter
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,15 +34,15 @@ class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
         recyclerView = findViewById(R.id.ibeacon_recycler_view)
 
         // Create adapter for recyclerAdapter
-        beaconRecyclerAdapter = iBeaconRecyclerAdapter()
+        beaconRecyclerAdapter = IBeaconRecyclerAdapter()
         recyclerView.adapter = beaconRecyclerAdapter
         // Set up the layout manager to be linear
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Ask user for location permission
-        if (ContextCompat.checkSelfPermission(this@iBeaconActivity,
+        // Ask user for fine location permission
+        if ((ContextCompat.checkSelfPermission(this@iBeaconActivity,
                 Manifest.permission.ACCESS_FINE_LOCATION
-            ) !== PackageManager.PERMISSION_GRANTED) {
+            ) and PackageManager.PERMISSION_GRANTED) == 0) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(
                     this@iBeaconActivity,
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -84,6 +84,11 @@ class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
 
     override fun unbindService(conn: ServiceConnection) {
         super.unbindService(conn)
+        try {
+            beaconManager.stopRangingBeaconsInRegion(Region("beacons", null, null, null))
+        } catch (e: RemoteException) {
+            Log.e("iBeacon Activity - ", e.printStackTrace().toString())
+        }
     }
 
     override fun bindService(service: Intent?, conn: ServiceConnection, flags: Int): Boolean {
@@ -91,33 +96,10 @@ class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
     }
 
     override fun onBeaconServiceConnect() {
-
-        // new Region for ranging or monitoring
+        // Remove all ranges that we added before
+        beaconManager.removeAllRangeNotifiers()
+        // New Region for beacon ranging
         val region = Region("beacons", null, null, null)
-
-        // Called when the BeaconService sees or stops seeing a Region of beacons
-        beaconManager.addMonitorNotifier(object : MonitorNotifier {
-
-            override fun didEnterRegion(region: Region) {
-                try {
-                    beaconManager.startRangingBeaconsInRegion(region)
-                } catch (e: RemoteException) {
-                    e.printStackTrace()
-                }
-            }
-
-            override fun didExitRegion(region: Region) {
-                try {
-                    beaconManager.stopRangingBeaconsInRegion(region)
-                } catch (e: RemoteException) {
-                    e.printStackTrace()
-                }
-            }
-
-            override fun didDetermineStateForRegion(state: Int, region: Region) {
-                println("I have just switched from seeing/not seeing beacons: $state")
-            }
-        })
 
         beaconManager.addRangeNotifier { beacons, region ->
             beaconRecyclerAdapter.setCollectionBeacons(beacons)
@@ -125,6 +107,7 @@ class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
         }
 
         try {
+            // Start ranging beacons
             beaconManager.startRangingBeaconsInRegion(region);
         } catch (e: RemoteException) {
             Log.e("iBeacon Activity - ", e.printStackTrace().toString())
@@ -139,8 +122,8 @@ class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
                 if (grantResults.isNotEmpty() && grantResults[0] ==
                     PackageManager.PERMISSION_GRANTED) {
                     if ((ContextCompat.checkSelfPermission(this@iBeaconActivity,
-                            Manifest.permission.ACCESS_FINE_LOCATION) ===
-                                PackageManager.PERMISSION_GRANTED)) {
+                            Manifest.permission.ACCESS_FINE_LOCATION) and
+                                PackageManager.PERMISSION_GRANTED) != 0) {
                         Toast.makeText(this,
                             R.string.ibeacon_permission_ok, Toast.LENGTH_SHORT).show()
                     }
