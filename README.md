@@ -47,7 +47,7 @@ Un des désavantages qu'elle présente serait qu'elle peut collecter des informa
 
 Voici quelques exemples d'utilisations:
 
-1. Dans un cas où on serait dans un **aéroport** et qu'on souhaiterait recevoir des informations sur notre vol lorsqu'on attend à la gate par exemple, il serait plus approprié d'utiliser des iBeacons afin d'éviter de devoir aller scanner un tag NFC. De plus, une iBeacon permet d'émettre des informations auprès de plusieurs clients en même temps, ce qu'il serait également adapté pour cette situation.
+1. Dans un cas où on serait dans un **aéroport** et qu'on souhaiterait recevoir des informations sur notre vol lorsqu'on attend à la gate par exemple, il serait plus approprié d'utiliser des iBeacons afin d'éviter de devoir aller scanner un tag NFC. De plus, un iBeacon permet d'émettre des informations auprès plusieurs clients en même temps, ce qu'il serait également adapté pour cette situation.
 
 2. Pour un **paiement sans contact**, la technologie NFC est bien mieux adapatée car elle fonctionne mieux avec des portées courtes (quelques centimètres). Comme dit précédemment, un iBeacon émet des informations jusqu'à une grande portée, 70 mètres, ce qui pourrait permettre à un attaquant de faire une attaque de type spoof et d'effectuer des paiements non-voulus. Vu que NFC a été spécialement designé pour les paiements, elle offre des fonctions de chiffrement, ce qui permet de garantir la confidentialité des données.
 
