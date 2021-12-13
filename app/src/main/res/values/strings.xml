@@ -10,4 +10,6 @@
     <string name="ibeacon_rssi" translatable="false">RSSI</string>
     <string name="ibeacon_permission_ok">Permission granted</string>
     <string name="ibeacon_permission_denied">Permission denied</string>
+    <string name="barcode_resultTitle">Scan result</string>
+    <string name="barcode_resultWaiting">Awaiting scan..</string>
 </resources>
