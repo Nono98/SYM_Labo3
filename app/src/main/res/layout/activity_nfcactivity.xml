@@ -6,11 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".NFCActivity">
 
-    <TextView
-        android:id="@+id/textView_explanation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="251dp" />
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <EditText
+            android:id="@+id/nfc_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/nfc_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/nfc_btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="login" />
+
+        <Button
+            android:id="@+id/nfc_btnHigh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top secret" />
+
+        <Button
+            android:id="@+id/nfc_btnMid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Moyennement secret" />
+
+        <Button
+            android:id="@+id/nfc_btnLow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pas trop secret" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
