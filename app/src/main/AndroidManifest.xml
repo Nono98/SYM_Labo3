@@ -13,10 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab3">
         <activity
-            android:name=".IBeaconRecyclerAdapter"
-            android:exported="true" />
-        <activity
-            android:name=".iBeaconActivity"
+            android:name=".ibeacon.IBeaconActivity"
             android:exported="true" />
         <activity
             android:name=".NFCActivity"

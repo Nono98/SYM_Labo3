@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import ch.heigvd.iict.sym.lab.lab3.ibeacon.IBeaconActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var barcodeButton : Button
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         ibeaconButton.setOnClickListener {
-            val intent = Intent(this, iBeaconActivity::class.java)
+            val intent = Intent(this, IBeaconActivity::class.java)
             startActivity(intent)
         }
     }
