@@ -24,7 +24,7 @@ import com.journeyapps.barcodescanner.BarcodeResult
 import com.journeyapps.barcodescanner.BarcodeCallback
 
 /**
- * @author : Peguiron A, Plancherel N, Viotti N
+ * @author : Peguiron Adrien, Plancherel Noemie, Viotti Nicolas
  * Activity to scan a barcode, display the result and a picture of the barcode-detection
  * Hugely inspired by https://github.com/journeyapps/zxing-android-embedded
  */
@@ -53,7 +53,7 @@ class BarcodeActivity : AppCompatActivity() {
 
 
 
-        // Ask user for fine location permission
+        // Ask user for camera permission
         if ((ContextCompat.checkSelfPermission(this@BarcodeActivity,
                 Manifest.permission.CAMERA
             ) and PackageManager.PERMISSION_GRANTED) == 0) {

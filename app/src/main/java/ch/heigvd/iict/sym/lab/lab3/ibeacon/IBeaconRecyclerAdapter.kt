@@ -9,6 +9,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import ch.heigvd.iict.sym.lab.lab3.R
 
+/**
+* @author : Peguiron Adrien, Plancherel Noemie, Viotti Nicolas
+* Class for Recycler Adapter for the GUI
+*/
 class IBeaconRecyclerAdapter : RecyclerView.Adapter<IBeaconRecyclerAdapter.ViewHolder>() {
     private var beacons: List<Beacon> = ArrayList()
 

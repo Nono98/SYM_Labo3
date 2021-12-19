@@ -21,6 +21,10 @@ import org.altbeacon.beacon.Region
 
 private const val BEACON_FORMAT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"
 
+/**
+ * @author : Peguiron Adrien, Plancherel Noemie, Viotti Nicolas
+ * Activity that monitors iBeacons and ask user for fine location permissions
+ */
 class IBeaconActivity : AppCompatActivity(), BeaconConsumer {
     private lateinit var beaconManager: BeaconManager
     private lateinit var beaconRecyclerAdapter: IBeaconRecyclerAdapter
