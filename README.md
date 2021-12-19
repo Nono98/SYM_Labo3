@@ -26,11 +26,25 @@
 
 > Quelle est la quantité maximale de données pouvant être stockée sur un QR-code? Veuillez expérimenter, avec le générateur conseillé de codes-barres (QR), de générer différentes tailles de QR-codes. Pensez-vous qu’il est envisageable d’utiliser confortablement des QR-codes complexes  (par  exemple  du  contenant  >500  caractères  de  texte,une  vCard très complète ou encore un certificat Covid)?
 
+Les QR-code sont composés de modules(point noir et blanc qui composent le QR), dont le nombre/la configuration varient en fonction de la version du QR-code. Il existe 40 versions différentes et la "configuration du module" dépend en réalité du nombre de modules présents dans le QR. Plus on souhaite ajouter de données, plus on doit augmenter le nombre de modules et donc par conséquent, la taille (physique) du qr-code.
+Ainsi on peut lire que le plus de données peut être stocké dans un QR-code Version 40 (177x177 modules) avec un CCM (Data correction level) Low. Cela permet alors de stocker 7089 caractères numériques ou 4296 caractères alphanumériques.
+
+En pratique maintenant, en se référant au site fourni dans la consigne, on remarque qu'un texte de 500 caractères ne pose pas de problèmes peu importe l'encodage ou le niveau de correction qu'on décide d'appliquer.
+Il en va de même pour la vCard, à condition de ne pas surcharger les champs, notamment le champ "Notes".
 
 
 #### 3.2.2
 
 > Il existe de très nombreux services sur Internet permettant de générer des QR-codes dynamiques. Veuillez expliquer ce que sont les QR-codes dynamiques. Quels sont les avantages et  respectivement  les inconvénients à utiliser ceux-ci en comparaison avec des QR-codes statiques.Vous adapterez votre réponse à une utilisation depuis une plateforme mobile.
+
+Un QR code dynamique est un QR-code qui contient en réalité une url raccourcie. L'information qu'on essaye d'atteindre n'est en réalité pas contenue dans le QR-code lui-même. L'information est contenue sur un site web et l'url nous y redirige. L'url de redirection peut donc changer, contrairement à un QR-code statique.
+Les avantages d'un QR-Code dynamique :
+1. Le contenu peut changer au fil du temps. Si on prend l'exemple du menu d'un restaurant, on peut s'attendre à ce que ce menu change au fur et à mesures des semaines. Grâce au QR dynamique, on peut alors changer le menu sans avoir à changer le QR-code.
+2. On peut traquer l'utilisation du qr-code. Lorsqu'un code est scanné, on peut capturer où, quand et avec quel appareil le scan a été effectué. Ces statistiques peuvent alors être répertoriées et utilisées à des fins commerciales, marketing ou politiques.
+3. Etant donné les paramètres récupérées au point 2, on peut alors personnaliser de manière dynamique le contenu du qr. Pour reprendre l'exemple du restaurant, en fonction de l'heure à laquelle le scan a été effectué, on peut imaginer afficher le menu du midi ou du soir.
+4. Les codes dynamiques sont particulièrement adaptés aux payements et commandes en ligne depuis un mobile. Imaginons une commande à une table de restaurant, en scannant un QR-code, l'URL nous envoie sur un site web développé pour les mobiles, où on peut ajouter les articles à notre panier directement. Envoyer la commande génère alors un code pour le serveur à scanner ou envoie directement la commande. Les informations nécessaires à ce genre de manipulation est apparemment trop compliqué à enregistrer dans un code statique.
+5. Les codes peuvent être activé/désactivé à volonté par l'entité qui l'a généré, en redirigeant l'URL vers une page d'erreur par exemple. On peut imaginer qu'après une centaine de scans, le code qr redirige la personne ayant scanné vers une autre adresse.
+6. Etant donné le point 2 encore, on peut imaginer qu'on souhaite rediriger différemment les différents appareils mobiles en fonction de leur OS. Ainsi, en scannant le code, le QR peut détecter l'OS utilisé et rediriger vers le bon Store en fonction.
 
 ## 4. Balises iBeacon
 
