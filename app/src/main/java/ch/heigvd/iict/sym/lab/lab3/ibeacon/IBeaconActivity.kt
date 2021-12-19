@@ -21,7 +21,7 @@ import org.altbeacon.beacon.Region
 
 private const val BEACON_FORMAT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"
 
-class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
+class IBeaconActivity : AppCompatActivity(), BeaconConsumer {
     private lateinit var beaconManager: BeaconManager
     private lateinit var beaconRecyclerAdapter: IBeaconRecyclerAdapter
     private lateinit var recyclerView: RecyclerView
@@ -40,21 +40,21 @@ class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Ask user for fine location permission
-        if ((ContextCompat.checkSelfPermission(this@iBeaconActivity,
+        if ((ContextCompat.checkSelfPermission(this@IBeaconActivity,
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) and PackageManager.PERMISSION_GRANTED) == 0) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    this@iBeaconActivity,
+                    this@IBeaconActivity,
                     Manifest.permission.ACCESS_FINE_LOCATION
                 )
             ) {
                 ActivityCompat.requestPermissions(
-                    this@iBeaconActivity,
+                    this@IBeaconActivity,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1
                 )
             } else {
                 ActivityCompat.requestPermissions(
-                    this@iBeaconActivity,
+                    this@IBeaconActivity,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1
                 )
             }
@@ -121,7 +121,7 @@ class iBeaconActivity : AppCompatActivity(), BeaconConsumer {
             1 -> {
                 if (grantResults.isNotEmpty() && grantResults[0] ==
                     PackageManager.PERMISSION_GRANTED) {
-                    if ((ContextCompat.checkSelfPermission(this@iBeaconActivity,
+                    if ((ContextCompat.checkSelfPermission(this@IBeaconActivity,
                             Manifest.permission.ACCESS_FINE_LOCATION) and
                                 PackageManager.PERMISSION_GRANTED) != 0) {
                         Toast.makeText(this,

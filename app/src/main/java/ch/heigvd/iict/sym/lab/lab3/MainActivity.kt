@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         ibeaconButton.setOnClickListener {
-            val intent = Intent(this, iBeaconActivity::class.java)
+            val intent = Intent(this, IBeaconActivity::class.java)
             startActivity(intent)
         }
     }
