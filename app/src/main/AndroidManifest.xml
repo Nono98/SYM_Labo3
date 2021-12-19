@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Lab3"
         android:hardwareAccelerated="true">
         <activity
-            android:name=".ibeacon.iBeaconActivity"
+            android:name=".ibeacon.IBeaconActivity"
             android:exported="true" />
         <activity
             android:name=".NFCActivity"
