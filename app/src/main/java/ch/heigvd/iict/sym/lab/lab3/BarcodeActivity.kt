@@ -6,7 +6,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
-import android.view.View
 import com.google.zxing.client.android.BeepManager
 
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
@@ -19,14 +18,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import ch.heigvd.iict.sym.lab.lab3.R
 
 import com.journeyapps.barcodescanner.BarcodeResult
 
 import com.journeyapps.barcodescanner.BarcodeCallback
 
 /**
- *
+ * @author : Peguiron A, Plancherel N, Viotti N
+ * Activity to scan a barcode, display the result and a picture of the barcode-detection
+ * Hugely inspired by https://github.com/journeyapps/zxing-android-embedded
  */
 class BarcodeActivity : AppCompatActivity() {
 
@@ -35,9 +35,6 @@ class BarcodeActivity : AppCompatActivity() {
     private lateinit var imageView: ImageView
     private lateinit var lastText: TextView
 
-    /**
-     * À la création, initialisation de la vue, récupération des références.
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_barcode)
@@ -78,10 +75,8 @@ class BarcodeActivity : AppCompatActivity() {
         }
     }
 
-
-
     /**
-     * Callback lorsqu'un barre code est décodé.
+     * Callback function when a code is scanned, update the still image of the previous scan
      */
     private var callback: BarcodeCallback? = object : BarcodeCallback {
         override fun barcodeResult(result: BarcodeResult) {
@@ -99,25 +94,17 @@ class BarcodeActivity : AppCompatActivity() {
         override fun possibleResultPoints(resultPoints: List<ResultPoint>) {}
     }
 
-    /**
-     * À la récupération
-     */
+
     override fun onResume() {
         super.onResume()
         barcodeView.resume()
     }
 
-    /**
-     * Mise en pause
-     */
     override fun onPause() {
         super.onPause()
         barcodeView.pause()
     }
 
-    /**
-     * Sur pression
-     */
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return barcodeView.onKeyDown(keyCode, event) || super.onKeyDown(keyCode, event)
     }
