@@ -3,9 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_barcode.xml" value="0.3046875" />
-        <entry key="app/src/main/res/layout/activity_ibeacon.xml" value="0.3955056179775281" />
-        <entry key="app/src/main/res/layout/activity_ibeacon_recycler_adapter.xml" value="0.33" />
+        <entry key="..\:/Users/Nicolas/OneDrive/Ecole/SYM/Labo/Labo3/SYM_Labo3/app/src/main/res/layout/activity_barcode.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Nicolas/OneDrive/Ecole/SYM/Labo/Labo3/SYM_Labo3/app/src/main/res/layout/activity_ibeacon.xml" value="0.20520833333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33967391304347827" />
       </map>
     </option>
